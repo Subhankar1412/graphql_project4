@@ -1,0 +1,41 @@
+# type Profile {
+#   userName: String!
+#   walletAddress: String!
+#   profileImage: String!
+# }
+
+# extend type Query {
+#   getAllProfiles(
+#     userName: String!
+#     walletAddress: String!
+#     profileImage: String!
+#   ): [Profile]
+# }
+
+# extend type Mutation {
+#   createProfile(
+#     userName: String!
+#     walletAddress: String!
+#     profileImage: String!
+#   ): [Profile]
+# }
+
+extend type Query {
+  getAllProfiles(
+    userName: String!
+    walletAddress: String!
+    profileImage: String!
+  ): AuthenticateResponse!
+}
+
+extend type Mutation {
+  createProfile(
+    userName: String!
+    walletAddress: String!
+    profileImage: String!
+  ): AuthenticateResponse!
+}
+
+type AuthenticateResponse {
+  token: String!
+}
